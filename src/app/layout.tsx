@@ -10,10 +10,23 @@ const inter = Inter({
   display: "swap",
 });
 
+// Resolve URL base limpando BOM/whitespace que podem aparecer em env vars
+// importadas com encoding ruim. Cai pra VERCEL_URL → localhost em dev.
+function resolveBaseUrl(): string {
+  const raw =
+    process.env.NEXT_PUBLIC_APP_URL ||
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "") ||
+    "http://localhost:3000";
+  const cleaned = raw.replace(/^﻿/, "").trim();
+  try {
+    return new URL(cleaned).toString();
+  } catch {
+    return "http://localhost:3000";
+  }
+}
+
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000",
-  ),
+  metadataBase: new URL(resolveBaseUrl()),
   title: {
     default:
       "Spotlog — Prospecção automatizada, CRM e propostas em uma só plataforma",
