@@ -101,15 +101,15 @@ function HeroVisual() {
       {/* Foto real de entregador (Unsplash) */}
       <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-card bg-navy-100">
         <Image
-          src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=900&q=85"
-          alt="Entregador Spotlog com pacote"
+          src="/images/entregador-hero.png"
+          alt="Entregador Spotlog com uniforme vermelho entregando pedido"
           fill
           sizes="(max-width: 1024px) 100vw, 40vw"
-          className="object-cover"
+          className="object-cover object-center"
           priority
         />
         {/* Overlay sutil pra cards ficarem legíveis */}
-        <div className="absolute inset-0 bg-gradient-to-t from-navy-950/85 via-navy-950/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-950/55 via-transparent to-transparent" />
 
         {/* Card sobre a foto: última entrega */}
         <div className="absolute bottom-6 left-6 right-6 z-10">
