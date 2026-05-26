@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -97,69 +98,22 @@ export function Hero() {
 function HeroVisual() {
   return (
     <div className="relative">
-      <div className="relative aspect-[4/5] rounded-3xl bg-gradient-to-br from-navy-900 via-navy-800 to-navy-700 overflow-hidden shadow-card">
-        <div className="absolute inset-0 dot-grid opacity-20" />
+      {/* Foto real de entregador (Unsplash) */}
+      <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-card bg-navy-100">
+        <Image
+          src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=900&q=85"
+          alt="Entregador Spotlog com pacote"
+          fill
+          sizes="(max-width: 1024px) 100vw, 40vw"
+          className="object-cover"
+          priority
+        />
+        {/* Overlay sutil pra cards ficarem legíveis */}
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-950/85 via-navy-950/30 to-transparent" />
 
-        <svg
-          viewBox="0 0 400 500"
-          className="absolute inset-0 w-full h-full"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <defs>
-            <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#ff7333" />
-              <stop offset="100%" stopColor="#ff5410" />
-            </linearGradient>
-          </defs>
-
-          <circle cx="280" cy="120" r="90" fill="#ff5410" opacity="0.12" />
-          <circle cx="280" cy="120" r="60" fill="#ff7333" opacity="0.18" />
-
-          <circle cx="190" cy="125" r="38" fill="#f5d4b8" />
-          <path d="M 152 115 Q 152 80, 190 78 Q 228 80, 228 115 Z" fill="#ff5410" />
-          <rect x="178" y="105" width="24" height="10" rx="2" fill="#1c2a83" opacity="0.4" />
-          <rect x="178" y="155" width="24" height="20" fill="#f5d4b8" />
-
-          <path
-            d="M 130 175 Q 190 168, 250 175 L 260 320 L 120 320 Z"
-            fill="url(#orangeGrad)"
-          />
-          <rect x="130" y="240" width="120" height="8" fill="white" opacity="0.5" />
-          <rect x="130" y="270" width="120" height="6" fill="white" opacity="0.3" />
-
-          <rect x="135" y="280" width="130" height="100" rx="6" fill="#fff5ed" stroke="#1c2a83" strokeWidth="2" />
-          <rect x="135" y="280" width="130" height="30" rx="6" fill="#ffe7d3" />
-          <rect x="170" y="325" width="60" height="6" rx="2" fill="#1c2a83" />
-          <rect x="180" y="338" width="40" height="4" rx="2" fill="#1c2a83" opacity="0.5" />
-          <circle cx="245" cy="295" r="10" fill="#1c2a83" />
-          <text x="245" y="299" textAnchor="middle" fontSize="9" fill="#ff5410" fontWeight="bold">S</text>
-
-          <path d="M 130 200 Q 110 250, 130 285" stroke="#1c2a83" strokeWidth="14" fill="none" strokeLinecap="round" />
-          <path d="M 250 200 Q 270 250, 250 285" stroke="#1c2a83" strokeWidth="14" fill="none" strokeLinecap="round" />
-
-          <rect x="125" y="190" width="14" height="80" rx="4" fill="#1c2a83" opacity="0.6" />
-          <rect x="241" y="190" width="14" height="80" rx="4" fill="#1c2a83" opacity="0.6" />
-
-          <circle cx="178" cy="128" r="2.5" fill="#1c2a83" />
-          <circle cx="202" cy="128" r="2.5" fill="#1c2a83" />
-          <path d="M 178 145 Q 190 152, 202 145" stroke="#1c2a83" strokeWidth="2" fill="none" strokeLinecap="round" />
-
-          <path
-            d="M 30 420 Q 100 380, 200 400 T 380 400"
-            stroke="#ff5410" strokeWidth="2" fill="none" strokeDasharray="6 4" opacity="0.5"
-          />
-          <circle cx="30" cy="420" r="6" fill="#ff5410" />
-          <circle cx="200" cy="400" r="8" fill="white" stroke="#ff5410" strokeWidth="3" />
-          <circle cx="380" cy="420" r="6" fill="#ff5410" />
-
-          <text x="30" y="445" fontSize="10" fill="white" opacity="0.7" fontWeight="500">Coleta</text>
-          <text x="180" y="425" fontSize="10" fill="white" opacity="0.9" fontWeight="700">Em rota</text>
-          <text x="345" y="445" fontSize="10" fill="white" opacity="0.7" fontWeight="500">Entrega</text>
-        </svg>
-
+        {/* Card sobre a foto: última entrega */}
         <div className="absolute bottom-6 left-6 right-6 z-10">
-          <div className="bg-white/95 backdrop-blur rounded-xl p-4 shadow-soft">
+          <div className="bg-white/95 backdrop-blur rounded-2xl p-4 shadow-card border border-white/40">
             <div className="flex items-center gap-3">
               <div className="grid h-10 w-10 place-items-center rounded-lg bg-success-500">
                 <CheckCircle2 className="h-5 w-5 text-white" />
@@ -174,8 +128,20 @@ function HeroVisual() {
             </div>
           </div>
         </div>
+
+        {/* Badge selo no canto superior */}
+        <div className="absolute top-5 left-5 inline-flex items-center gap-2 bg-white/95 backdrop-blur px-3 py-1.5 rounded-full shadow-soft">
+          <span className="relative flex h-1.5 w-1.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-success-500 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-success-500"></span>
+          </span>
+          <span className="text-[10px] font-bold text-navy-900 uppercase tracking-wider">
+            Em operação
+          </span>
+        </div>
       </div>
 
+      {/* Card flutuante esquerda: rastreamento */}
       <motion.div
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
@@ -183,8 +149,12 @@ function HeroVisual() {
         className="absolute -left-4 lg:-left-12 top-12 bg-white rounded-2xl shadow-card border border-ink-100 p-4 w-64 hidden md:block animate-float-y"
       >
         <div className="flex items-center justify-between mb-3">
-          <span className="text-xs font-bold uppercase tracking-wider text-ink-500">Rastreamento</span>
-          <span className="text-[10px] font-bold text-success-700 bg-success-50 px-2 py-0.5 rounded-full">Em rota</span>
+          <span className="text-xs font-bold uppercase tracking-wider text-ink-500">
+            Rastreamento
+          </span>
+          <span className="text-[10px] font-bold text-success-700 bg-success-50 px-2 py-0.5 rounded-full">
+            Em rota
+          </span>
         </div>
         <div className="space-y-2.5">
           {[
@@ -205,14 +175,17 @@ function HeroVisual() {
         </div>
       </motion.div>
 
+      {/* Card flutuante direita: métricas */}
       <motion.div
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, delay: 0.7 }}
-        className="absolute -right-4 lg:-right-12 bottom-24 bg-white rounded-2xl shadow-card border border-ink-100 p-4 w-56 hidden md:block"
+        className="absolute -right-4 lg:-right-12 bottom-32 bg-white rounded-2xl shadow-card border border-ink-100 p-4 w-56 hidden md:block"
       >
         <div className="flex items-center justify-between mb-3">
-          <span className="text-xs font-bold uppercase tracking-wider text-ink-500">Operação hoje</span>
+          <span className="text-xs font-bold uppercase tracking-wider text-ink-500">
+            Operação hoje
+          </span>
           <Activity className="h-4 w-4 text-spotorange-500" />
         </div>
         <div className="space-y-2.5">
@@ -229,15 +202,20 @@ function HeroVisual() {
         </div>
       </motion.div>
 
+      {/* Selo confiança canto inferior direito */}
       <motion.div
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.4, delay: 0.9, type: "spring" }}
-        className="absolute -bottom-6 -right-2 bg-gradient-to-br from-spotorange-500 to-spotorange-600 rounded-2xl shadow-orange-glow p-4 text-white w-40 hidden md:block"
+        className="absolute -bottom-6 -right-2 bg-gradient-to-br from-spotorange-500 to-spotorange-600 rounded-2xl shadow-orange-glow p-4 text-white w-40 hidden md:block z-20"
       >
         <ShieldCheck className="h-6 w-6 mb-2" />
-        <div className="text-[10px] uppercase tracking-wider font-semibold opacity-80">Operação</div>
-        <div className="text-sm font-bold leading-tight">Rastreável<br />ponta a ponta</div>
+        <div className="text-[10px] uppercase tracking-wider font-semibold opacity-80">
+          Operação
+        </div>
+        <div className="text-sm font-bold leading-tight">
+          Rastreável<br />ponta a ponta
+        </div>
       </motion.div>
     </div>
   );

@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Package, CheckCircle2, Truck, MapPin } from "lucide-react";
+import { CheckCircle2, Truck, MapPin } from "lucide-react";
+import { SpotlogLogo } from "@/components/brand/spotlog-logo";
 
 export default function AuthLayout({
   children,
@@ -14,16 +15,8 @@ export default function AuthLayout({
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-navy-700/30 rounded-full translate-y-32 -translate-x-32 blur-3xl" />
 
         <div className="relative z-10 p-12 flex flex-col justify-between text-white w-full">
-          <Link href="/" className="inline-flex items-center gap-2.5 group w-fit">
-            <div className="grid h-11 w-11 place-items-center rounded-xl bg-white">
-              <Package className="h-6 w-6 text-spotorange-500" strokeWidth={2.5} />
-            </div>
-            <div className="flex flex-col leading-none">
-              <span className="font-bold text-xl tracking-tight">Spotlog</span>
-              <span className="text-[10px] text-ink-300 font-medium tracking-wide uppercase">
-                Logística inteligente
-              </span>
-            </div>
+          <Link href="/" className="inline-block w-fit">
+            <SpotlogLogo variant="full" light />
           </Link>
 
           <div className="space-y-8 max-w-md">
@@ -59,21 +52,8 @@ export default function AuthLayout({
       </div>
 
       <div className="flex flex-col px-6 py-12 lg:px-12 lg:py-16 justify-center">
-        <Link
-          href="/"
-          className="lg:hidden flex items-center gap-2.5 mb-8 group"
-        >
-          <div className="grid h-11 w-11 place-items-center rounded-xl bg-navy-900">
-            <Package className="h-6 w-6 text-spotorange-500" strokeWidth={2.5} />
-          </div>
-          <div className="flex flex-col leading-none">
-            <span className="font-bold text-xl text-navy-900 tracking-tight">
-              Spotlog
-            </span>
-            <span className="text-[10px] text-ink-500 font-medium tracking-wide uppercase">
-              Logística inteligente
-            </span>
-          </div>
+        <Link href="/" className="lg:hidden inline-block mb-8 w-fit">
+          <SpotlogLogo variant="full" />
         </Link>
         <div className="mx-auto w-full max-w-md">{children}</div>
       </div>

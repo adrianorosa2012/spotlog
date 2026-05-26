@@ -43,7 +43,8 @@ export function ControleOperacional() {
           {items.map((item) => (
             <div
               key={item.title}
-              className="group bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-spotorange-400/40 transition-all"
+              className="group bg-white/5 backdrop-blur border-2 border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-spotorange-400 hover:-translate-y-1 transition-all duration-300"
+              style={{ boxShadow: '0 1px 3px 0 rgba(0,0,0,0.1)' }}
             >
               <div className="grid h-12 w-12 place-items-center rounded-xl bg-spotorange-500/10 group-hover:bg-spotorange-500 transition-colors mb-4">
                 <item.icon className="h-6 w-6 text-spotorange-400 group-hover:text-white transition-colors" />

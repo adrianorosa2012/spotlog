@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { MessageCircle, Headphones, FileText, Clock, Sparkles, RefreshCcw, Users, History } from "lucide-react";
 
 const cards = [
@@ -16,47 +17,40 @@ export function Atendimento() {
     <section id="atendimento" className="py-20 lg:py-32">
       <div className="container">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
+          {/* Foto real de atendente */}
           <div className="lg:col-span-5 order-2 lg:order-1">
             <div className="relative">
-              <div className="aspect-square rounded-3xl bg-gradient-to-br from-spotorange-500 to-spotorange-700 p-8 shadow-orange-glow relative overflow-hidden">
-                <div className="absolute inset-0 dot-grid opacity-15" />
-                <svg viewBox="0 0 300 300" className="absolute inset-0 w-full h-full">
-                  <circle cx="150" cy="120" r="48" fill="#fff5ed" />
-                  <ellipse cx="150" cy="105" rx="44" ry="38" fill="#2a1a08" />
-                  <ellipse cx="150" cy="125" rx="36" ry="34" fill="#f5d4b8" />
-                  <ellipse cx="150" cy="175" rx="14" ry="22" fill="#f5d4b8" />
-                  <path d="M 90 245 Q 150 200, 210 245 L 210 300 L 90 300 Z" fill="#1c2a83" />
-                  <rect x="138" y="195" width="24" height="12" fill="#fff5ed" />
-                  <rect x="105" y="190" width="40" height="8" rx="4" fill="#ff5410" />
-                  <text x="125" y="197" fontSize="6" fill="white" fontWeight="bold">SPOTLOG</text>
-                  <circle cx="138" cy="128" r="2" fill="#1c2a83" />
-                  <circle cx="162" cy="128" r="2" fill="#1c2a83" />
-                  <path d="M 138 145 Q 150 152, 162 145" stroke="#1c2a83" strokeWidth="2" fill="none" strokeLinecap="round" />
-                  <circle cx="200" cy="110" r="22" fill="white" opacity="0.95" />
-                  <path d="M 192 102 L 192 116 Q 192 120, 196 120 L 200 120 L 205 124 L 205 120 L 208 120 Q 212 120, 212 116 L 212 102 Q 212 98, 208 98 L 196 98 Q 192 98, 192 102 Z" fill="#1c2a83" />
-                  <circle cx="197" cy="109" r="1" fill="white" />
-                  <circle cx="202" cy="109" r="1" fill="white" />
-                  <circle cx="207" cy="109" r="1" fill="white" />
-                </svg>
-                <div className="relative h-full flex flex-col justify-end">
-                  <div className="bg-white/95 backdrop-blur rounded-xl p-4 shadow-soft">
+              <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-card bg-navy-100 relative">
+                <Image
+                  src="https://images.unsplash.com/photo-1573497019418-b400bb3ab074?auto=format&fit=crop&w=800&q=85"
+                  alt="Atendente Spotlog com headset"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover img-zoom"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/60 via-transparent to-transparent" />
+
+                {/* Card sobre foto: chat ativo */}
+                <div className="absolute bottom-6 left-6 right-6 z-10">
+                  <div className="bg-white/95 backdrop-blur rounded-2xl p-4 shadow-card border border-white/40">
                     <div className="flex items-center gap-2 mb-2">
                       <div className="h-2 w-2 rounded-full bg-success-500 animate-pulse-soft" />
                       <span className="text-[10px] uppercase tracking-wider font-bold text-ink-500">
                         Online agora
                       </span>
                     </div>
-                    <div className="text-sm font-bold text-navy-900">
-                      Carla, atendente Spotlog
+                    <div className="text-sm font-bold text-navy-900 mb-1">
+                      Atendimento Spotlog
                     </div>
-                    <div className="text-xs text-ink-500 mt-1">
+                    <div className="text-xs text-ink-500">
                       Olá! Como posso ajudar com sua operação hoje?
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="absolute -top-4 -right-4 bg-white rounded-2xl shadow-card border border-ink-100 p-3 hidden lg:flex items-center gap-2">
+              {/* Badge tempo de resposta */}
+              <div className="absolute -top-4 -right-4 bg-white rounded-2xl shadow-card border border-ink-100 p-3 hidden lg:flex items-center gap-2 z-20">
                 <div className="grid h-9 w-9 place-items-center rounded-lg bg-success-500">
                   <MessageCircle className="h-4 w-4 text-white" />
                 </div>
@@ -66,6 +60,14 @@ export function Atendimento() {
                   </div>
                   <div className="text-sm font-bold text-navy-900">{"<"} 5 min</div>
                 </div>
+              </div>
+
+              {/* Badge SLA */}
+              <div className="absolute -bottom-5 left-6 bg-gradient-to-br from-spotorange-500 to-spotorange-600 rounded-2xl shadow-orange-glow p-3 text-white hidden lg:block z-20">
+                <div className="text-[10px] uppercase tracking-wider font-semibold opacity-80">
+                  Satisfação
+                </div>
+                <div className="text-lg font-bold leading-tight">97%</div>
               </div>
             </div>
           </div>
@@ -85,10 +87,7 @@ export function Atendimento() {
             </p>
             <div className="grid sm:grid-cols-2 gap-3">
               {cards.map((c) => (
-                <div
-                  key={c.title}
-                  className="bg-white border border-ink-200 rounded-xl p-4 hover:border-spotorange-300 hover:shadow-soft transition-all"
-                >
+                <div key={c.title} className="card-glow p-4">
                   <div className="flex items-start gap-3">
                     <div className="grid h-9 w-9 place-items-center rounded-lg bg-navy-50 shrink-0">
                       <c.icon className="h-4 w-4 text-navy-900" />

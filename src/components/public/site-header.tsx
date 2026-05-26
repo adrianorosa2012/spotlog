@@ -1,8 +1,9 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Menu, X, Package, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { SpotlogLogo } from "@/components/brand/spotlog-logo";
 import { cn } from "@/lib/utils";
 
 const links = [
@@ -44,18 +45,8 @@ export function SiteHeader() {
       )}
     >
       <div className="container flex h-20 items-center justify-between">
-        <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="grid h-11 w-11 place-items-center rounded-xl bg-navy-900 group-hover:bg-navy-800 transition-colors">
-            <Package className="h-6 w-6 text-spotorange-500" strokeWidth={2.5} />
-          </div>
-          <div className="flex flex-col leading-none">
-            <span className="font-bold text-lg text-navy-900 tracking-tight">
-              Spotlog
-            </span>
-            <span className="text-[10px] text-ink-500 font-medium tracking-wide uppercase">
-              Logística inteligente
-            </span>
-          </div>
+        <Link href="/" className="group">
+          <SpotlogLogo variant="full" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1">

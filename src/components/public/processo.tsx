@@ -23,12 +23,12 @@ const etapas = [
 ];
 
 const dashboardMetrics = [
-  { icon: Truck, label: "Entregas hoje", value: "294", color: "text-navy-900" },
-  { icon: Clock, label: "Coletas agendadas", value: "127", color: "text-navy-900" },
-  { icon: MapPin, label: "Rotas ativas", value: "12", color: "text-spotorange-600" },
-  { icon: AlertCircle, label: "Ocorrências", value: "3", color: "text-spotorange-600" },
-  { icon: TrendingUp, label: "SLA cumprido", value: "98.4%", color: "text-success-700" },
-  { icon: MessageCircle, label: "Chamados", value: "8", color: "text-navy-900" },
+  { icon: Truck, label: "Entregas hoje", value: "294" },
+  { icon: Clock, label: "Coletas agendadas", value: "127" },
+  { icon: MapPin, label: "Rotas ativas", value: "12" },
+  { icon: AlertCircle, label: "Ocorrências", value: "3" },
+  { icon: TrendingUp, label: "SLA cumprido", value: "98.4%" },
+  { icon: MessageCircle, label: "Chamados", value: "8" },
 ];
 
 export function Processo() {
@@ -46,14 +46,10 @@ export function Processo() {
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
-          {/* Etapas */}
           <div className="lg:col-span-2">
             <div className="grid sm:grid-cols-2 gap-4">
-              {etapas.map((e, i) => (
-                <div
-                  key={e.n}
-                  className="relative bg-white border border-ink-200 rounded-2xl p-6 hover:shadow-card transition-all group"
-                >
+              {etapas.map((e) => (
+                <div key={e.n} className="card-glow p-6 group relative">
                   <div className="absolute -top-3 -right-3 grid h-12 w-12 place-items-center rounded-xl bg-navy-900 text-white font-bold text-sm shadow-soft group-hover:bg-spotorange-500 transition-colors">
                     {e.n}
                   </div>
@@ -67,7 +63,6 @@ export function Processo() {
             </div>
           </div>
 
-          {/* Dashboard lateral */}
           <div className="lg:col-span-1">
             <div className="bg-navy-900 rounded-2xl p-6 shadow-card relative overflow-hidden">
               <div className="absolute inset-0 dot-grid opacity-10" />
@@ -89,13 +84,11 @@ export function Processo() {
                   {dashboardMetrics.map((m) => (
                     <div
                       key={m.label}
-                      className="bg-white/5 backdrop-blur rounded-xl p-3 border border-white/10"
+                      className="bg-white/5 backdrop-blur rounded-xl p-3 border border-white/10 hover:border-spotorange-400/40 transition-colors"
                     >
                       <m.icon className="h-4 w-4 text-spotorange-400 mb-2" />
                       <div className="text-xs text-ink-300 mb-0.5">{m.label}</div>
-                      <div className={`text-xl font-bold text-white`}>
-                        {m.value}
-                      </div>
+                      <div className="text-xl font-bold text-white">{m.value}</div>
                     </div>
                   ))}
                 </div>

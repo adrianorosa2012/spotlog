@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Package, Mail, MapPin, Phone, Linkedin, Instagram, Facebook } from "lucide-react";
+import { Mail, MapPin, Phone, Linkedin, Instagram, Facebook } from "lucide-react";
+import { SpotlogLogo } from "@/components/brand/spotlog-logo";
 
 const linksGroups = {
   Soluções: [
@@ -36,16 +37,8 @@ export function SiteFooter() {
       <div className="container relative py-20">
         <div className="grid lg:grid-cols-12 gap-10 mb-16">
           <div className="lg:col-span-4">
-            <Link href="/" className="flex items-center gap-2.5 mb-5">
-              <div className="grid h-11 w-11 place-items-center rounded-xl bg-white">
-                <Package className="h-6 w-6 text-spotorange-500" strokeWidth={2.5} />
-              </div>
-              <div className="flex flex-col leading-none">
-                <span className="font-bold text-xl tracking-tight">Spotlog</span>
-                <span className="text-[10px] text-ink-400 font-medium tracking-wide uppercase">
-                  Logística inteligente
-                </span>
-              </div>
+            <Link href="/" className="inline-block mb-5">
+              <SpotlogLogo variant="full" light />
             </Link>
             <p className="text-sm text-ink-300 leading-relaxed max-w-sm mb-6">
               Logística inteligente para empresas que precisam entregar com
@@ -71,7 +64,7 @@ export function SiteFooter() {
                 <a
                   key={i}
                   href="#"
-                  className="grid h-10 w-10 place-items-center rounded-lg bg-white/5 hover:bg-spotorange-500 text-ink-300 hover:text-white transition-colors"
+                  className="grid h-10 w-10 place-items-center rounded-lg bg-white/5 hover:bg-spotorange-500 text-ink-300 hover:text-white transition-all hover:scale-110"
                 >
                   <Icon className="h-4 w-4" />
                 </a>
@@ -90,7 +83,7 @@ export function SiteFooter() {
                     <li key={item.label}>
                       <Link
                         href={item.href}
-                        className="text-sm text-ink-300 hover:text-white transition-colors"
+                        className="text-sm text-ink-300 hover:text-spotorange-400 transition-colors"
                       >
                         {item.label}
                       </Link>

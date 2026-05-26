@@ -31,14 +31,14 @@ export function Abrangencia() {
               modalidades de serviço. Consulte abaixo a região da sua operação.
             </p>
 
-            <div className="mt-8 bg-white border border-ink-200 rounded-2xl p-6 shadow-soft">
+            <div className="card-glow mt-8 p-6">
               <label className="text-xs font-bold uppercase tracking-wider text-ink-500 mb-2 block">
                 Consultar CEP
               </label>
               <div className="flex gap-2">
                 <input
                   placeholder="00000-000"
-                  className="flex-1 h-12 px-4 rounded-lg border-2 border-ink-200 focus:border-navy-900 focus:outline-none text-sm"
+                  className="flex-1 h-12 px-4 rounded-lg border-2 border-ink-200 focus:border-navy-900 focus:outline-none text-sm transition-colors"
                 />
                 <Button variant="orange" size="default" asChild>
                   <Link href="/contato?assunto=consultar-cep">
@@ -57,13 +57,10 @@ export function Abrangencia() {
           <div className="lg:col-span-7">
             <div className="grid sm:grid-cols-2 gap-3">
               {regioes.map((r) => (
-                <div
-                  key={r.name}
-                  className="bg-white border border-ink-200 rounded-xl p-5 hover:border-spotorange-300 hover:shadow-soft transition-all"
-                >
+                <div key={r.name} className="card-glow p-5 group">
                   <div className="flex items-start gap-3">
-                    <div className="grid h-9 w-9 place-items-center rounded-lg bg-navy-50 shrink-0">
-                      <MapPin className="h-4 w-4 text-navy-900" />
+                    <div className="grid h-9 w-9 place-items-center rounded-lg bg-navy-50 shrink-0 group-hover:bg-spotorange-500 transition-colors">
+                      <MapPin className="h-4 w-4 text-navy-900 group-hover:text-white transition-colors" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="font-bold text-navy-900 text-sm">{r.name}</div>
