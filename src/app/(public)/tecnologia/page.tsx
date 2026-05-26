@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Smartphone, BarChart3, Webhook, Bot, MapPin, Bell, Database, Lock, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ControleOperacional } from "@/components/public/controle-operacional";
@@ -20,29 +21,54 @@ const stack = [
 export default function TecnologiaPage() {
   return (
     <div>
-      <section className="relative pt-32 lg:pt-44 pb-16 lg:pb-24 bg-gradient-soft hero-pattern">
+      <section className="relative pt-32 lg:pt-44 pb-16 lg:pb-24 bg-gradient-soft hero-pattern overflow-hidden">
         <div className="absolute inset-0 grid-pattern opacity-40" />
         <div className="container relative">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="text-sm font-semibold text-spotorange-600 uppercase tracking-wider mb-4">
-              Tecnologia
+          <div className="grid lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-6">
+              <div className="text-sm font-semibold text-spotorange-600 uppercase tracking-wider mb-4">
+                Tecnologia
+              </div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-navy-950 leading-[1.1] text-balance">
+                Tecnologia que sustenta a operação —{" "}
+                <span className="text-gradient-spotlog">sem complicar pra você.</span>
+              </h1>
+              <p className="mt-6 text-lg lg:text-xl text-ink-600 leading-relaxed">
+                Plataforma própria, app do entregador, integrações com sua loja,
+                painel do cliente e IA de apoio ao atendimento.
+              </p>
+              <div className="mt-8 flex flex-col sm:flex-row gap-3">
+                <Button variant="orange" size="xl" asChild>
+                  <Link href="/contato">
+                    Quero conhecer
+                    <ArrowRight className="h-5 w-5" />
+                  </Link>
+                </Button>
+              </div>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-navy-950 leading-[1.1] text-balance">
-              Tecnologia que sustenta a operação —{" "}
-              <span className="text-gradient-spotlog">sem complicar pra você.</span>
-            </h1>
-            <p className="mt-6 text-lg lg:text-xl text-ink-600 leading-relaxed max-w-3xl mx-auto">
-              Plataforma própria, app do entregador, integrações com sua loja,
-              painel do cliente e IA de apoio ao atendimento. Tudo construído
-              pra simplificar — não pra adicionar mais ferramenta na sua mesa.
-            </p>
-            <div className="mt-8 flex justify-center gap-3">
-              <Button variant="orange" size="lg" asChild>
-                <Link href="/contato">
-                  Quero conhecer
-                  <ArrowRight className="h-5 w-5" />
-                </Link>
-              </Button>
+
+            <div className="lg:col-span-6 relative">
+              <div className="aspect-[5/4] rounded-3xl overflow-hidden shadow-card bg-navy-100 relative">
+                <Image
+                  src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=900&q=85"
+                  alt="Tecnologia Spotlog - App de rastreamento logístico"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-navy-950/50 to-spotorange-600/20" />
+              </div>
+
+              <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-card border border-ink-100 p-4 hidden md:flex items-center gap-3">
+                <div className="grid h-12 w-12 place-items-center rounded-xl bg-spotorange-500">
+                  <Smartphone className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <div className="text-[10px] uppercase tracking-wider font-bold text-ink-500">App nativo</div>
+                  <div className="text-sm font-bold text-navy-900">Entregador<br />sempre conectado</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -57,9 +83,9 @@ export default function TecnologiaPage() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {stack.map((s) => (
-              <div key={s.title} className="bg-white border border-ink-200 rounded-2xl p-6 hover:shadow-card hover:border-spotorange-300 transition-all">
-                <div className="grid h-12 w-12 place-items-center rounded-xl bg-navy-50 mb-4">
-                  <s.icon className="h-6 w-6 text-navy-900" />
+              <div key={s.title} className="card-glow p-6 group">
+                <div className="grid h-12 w-12 place-items-center rounded-xl bg-navy-50 group-hover:bg-spotorange-500 transition-colors mb-4">
+                  <s.icon className="h-6 w-6 text-navy-900 group-hover:text-white transition-colors" />
                 </div>
                 <h3 className="text-base font-bold text-navy-900 mb-2">{s.title}</h3>
                 <p className="text-sm text-ink-600 leading-relaxed">{s.desc}</p>

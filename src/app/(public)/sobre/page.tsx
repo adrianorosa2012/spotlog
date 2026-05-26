@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Target, Users, Heart, Award, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { QuemSomos } from "@/components/public/quem-somos";
@@ -16,31 +17,50 @@ const valores = [
 export default function SobrePage() {
   return (
     <div>
-      <section className="relative pt-32 lg:pt-44 pb-16 lg:pb-24 bg-gradient-soft hero-pattern">
+      <section className="relative pt-32 lg:pt-44 pb-16 lg:pb-24 bg-gradient-soft hero-pattern overflow-hidden">
         <div className="absolute inset-0 grid-pattern opacity-40" />
         <div className="container relative">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="text-sm font-semibold text-spotorange-600 uppercase tracking-wider mb-4">
-              Quem somos
+          <div className="grid lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-6">
+              <div className="text-sm font-semibold text-spotorange-600 uppercase tracking-wider mb-4">
+                Quem somos
+              </div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-navy-950 leading-[1.1] text-balance">
+                A Spotlog nasceu pra resolver o que{" "}
+                <span className="text-gradient-spotlog">logística genérica não resolve.</span>
+              </h1>
+              <p className="mt-6 text-lg lg:text-xl text-ink-600 leading-relaxed">
+                Acreditamos que entregar não é só transportar. É comunicar, dar
+                visibilidade, oferecer suporte de verdade e cuidar de cada pedido
+                como se fosse o único.
+              </p>
+              <div className="mt-8 flex flex-col sm:flex-row gap-3">
+                <Button variant="orange" size="xl" asChild>
+                  <Link href="/contato">
+                    Falar com a Spotlog
+                    <ArrowRight className="h-5 w-5" />
+                  </Link>
+                </Button>
+              </div>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-navy-950 leading-[1.1] text-balance">
-              A Spotlog nasceu pra resolver o que{" "}
-              <span className="text-gradient-spotlog">logística genérica não resolve.</span>
-            </h1>
-            <p className="mt-6 text-lg lg:text-xl text-ink-600 leading-relaxed max-w-3xl mx-auto">
-              Acreditamos que entregar não é só transportar. É comunicar, dar
-              visibilidade, oferecer suporte de verdade e cuidar de cada pedido
-              como se fosse o único. Por isso construímos uma operação com
-              tecnologia, atendimento humano e processo desenhado pro tipo de
-              carga que você movimenta.
-            </p>
-            <div className="mt-8 flex justify-center gap-3">
-              <Button variant="orange" size="lg" asChild>
-                <Link href="/contato">
-                  Falar com a Spotlog
-                  <ArrowRight className="h-5 w-5" />
-                </Link>
-              </Button>
+
+            <div className="lg:col-span-6 relative">
+              <div className="aspect-[5/4] rounded-3xl overflow-hidden shadow-card bg-navy-100 relative">
+                <Image
+                  src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=900&q=85"
+                  alt="Equipe Spotlog"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/55 to-transparent" />
+              </div>
+              <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-card border border-ink-100 p-5 hidden md:block">
+                <div className="text-[10px] uppercase tracking-wider font-bold text-ink-500 mb-1">Nosso time</div>
+                <div className="text-base font-bold text-navy-900">Pessoas + tecnologia</div>
+                <div className="text-xs text-ink-600 mt-1">Especialistas em logística que conhecem cada operação como a própria.</div>
+              </div>
             </div>
           </div>
         </div>
@@ -61,9 +81,9 @@ export default function SobrePage() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {valores.map((v) => (
-              <div key={v.title} className="bg-white border border-ink-200 rounded-2xl p-6 hover:shadow-card transition-all">
-                <div className="grid h-12 w-12 place-items-center rounded-xl bg-spotorange-50 mb-4">
-                  <v.icon className="h-6 w-6 text-spotorange-600" />
+              <div key={v.title} className="card-glow p-6 group">
+                <div className="grid h-12 w-12 place-items-center rounded-xl bg-spotorange-50 group-hover:bg-spotorange-500 transition-colors mb-4">
+                  <v.icon className="h-6 w-6 text-spotorange-600 group-hover:text-white transition-colors" />
                 </div>
                 <h3 className="text-lg font-bold text-navy-900 mb-2">{v.title}</h3>
                 <p className="text-sm text-ink-600 leading-relaxed">{v.desc}</p>

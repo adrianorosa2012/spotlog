@@ -63,9 +63,12 @@ export function Processo() {
             </div>
           </div>
 
+          {/* Dashboard lateral com fundo azul + CARDS BRANCOS DENTRO pra contraste */}
           <div className="lg:col-span-1">
-            <div className="bg-navy-900 rounded-2xl p-6 shadow-card relative overflow-hidden">
+            <div className="bg-navy-900 rounded-3xl p-6 shadow-card relative overflow-hidden">
               <div className="absolute inset-0 dot-grid opacity-10" />
+              <div className="absolute top-0 right-0 w-40 h-40 bg-spotorange-500/15 rounded-full -translate-y-20 translate-x-20 blur-2xl" />
+
               <div className="relative">
                 <div className="flex items-center gap-2 mb-1">
                   <div className="h-2 w-2 rounded-full bg-success-500 animate-pulse-soft" />
@@ -80,25 +83,27 @@ export function Processo() {
                   Dashboard real disponível na área do cliente
                 </p>
 
-                <div className="grid grid-cols-2 gap-3">
+                {/* CARDS BRANCOS sólidos sobre fundo azul */}
+                <div className="grid grid-cols-2 gap-2.5">
                   {dashboardMetrics.map((m) => (
                     <div
                       key={m.label}
-                      className="bg-white/5 backdrop-blur rounded-xl p-3 border border-white/10 hover:border-spotorange-400/40 transition-colors"
+                      className="bg-white rounded-xl p-3 shadow-soft hover:shadow-card transition-shadow"
                     >
-                      <m.icon className="h-4 w-4 text-spotorange-400 mb-2" />
-                      <div className="text-xs text-ink-300 mb-0.5">{m.label}</div>
-                      <div className="text-xl font-bold text-white">{m.value}</div>
+                      <m.icon className="h-4 w-4 text-spotorange-600 mb-2" />
+                      <div className="text-[10px] text-ink-500 mb-0.5 font-medium">{m.label}</div>
+                      <div className="text-xl font-bold text-navy-900">{m.value}</div>
                     </div>
                   ))}
                 </div>
 
-                <div className="mt-5 pt-5 border-t border-white/10">
+                {/* Barra status — branco em vidro */}
+                <div className="mt-5 bg-white rounded-xl p-3.5 shadow-soft">
                   <div className="flex items-center justify-between text-xs">
-                    <span className="text-ink-300">Status geral</span>
-                    <span className="flex items-center gap-1.5 font-semibold text-success-400">
+                    <span className="text-ink-600 font-medium">Status geral</span>
+                    <span className="flex items-center gap-1.5 font-bold text-success-700">
                       <CheckCircle2 className="h-3.5 w-3.5" />
-                      Operação saudável
+                      Saudável
                     </span>
                   </div>
                 </div>

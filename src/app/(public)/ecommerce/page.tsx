@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ShoppingBag, Zap, Calendar, Bell, RotateCcw, BarChart3, ArrowRight, CheckCircle2, Package } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CtaBanner } from "@/components/public/cta-banner";
@@ -34,7 +35,7 @@ export default function EcommercePage() {
         <div className="absolute inset-0 grid-pattern opacity-40" />
         <div className="container relative">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-7">
+            <div className="lg:col-span-6">
               <div className="inline-flex items-center gap-2 rounded-full bg-spotorange-50 px-4 py-1.5 mb-6 border border-spotorange-200">
                 <ShoppingBag className="h-3.5 w-3.5 text-spotorange-600" />
                 <span className="text-xs font-semibold text-spotorange-700">
@@ -63,46 +64,62 @@ export default function EcommercePage() {
               </div>
             </div>
 
-            <div className="lg:col-span-5">
-              <div className="bg-white rounded-3xl shadow-card border border-ink-200 p-6 relative overflow-hidden">
-                <div className="flex items-center justify-between mb-4">
+            <div className="lg:col-span-6 relative">
+              {/* Foto real de entregador entregando pacote */}
+              <div className="aspect-[5/4] rounded-3xl overflow-hidden shadow-card bg-navy-100 relative">
+                <Image
+                  src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=900&q=85"
+                  alt="Entrega de pedido de e-commerce Spotlog"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/55 to-transparent" />
+              </div>
+
+              {/* Card branco rastreio */}
+              <div className="absolute -bottom-6 -right-6 lg:-right-12 bg-white rounded-2xl shadow-card border border-ink-100 p-5 w-72 hidden md:block">
+                <div className="flex items-center justify-between mb-3">
                   <div>
-                    <div className="text-xs uppercase tracking-wider font-bold text-ink-500">Pedido</div>
-                    <div className="text-xl font-bold text-navy-900">#EC-49281</div>
+                    <div className="text-[10px] uppercase tracking-wider font-bold text-ink-500">Pedido</div>
+                    <div className="text-base font-bold text-navy-900">#EC-49281</div>
                   </div>
-                  <span className="bg-success-50 text-success-700 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                  <span className="bg-success-50 text-success-700 text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider">
                     Entregue
                   </span>
                 </div>
-                <div className="bg-navy-50 rounded-xl p-4 mb-4">
-                  <div className="text-xs text-ink-500 mb-1">Cliente</div>
-                  <div className="text-sm font-bold text-navy-900">Mariana Silva</div>
-                  <div className="text-xs text-ink-600 mt-1">Vila Mariana, SP</div>
-                </div>
-                <div className="space-y-3 mb-4">
+                <div className="space-y-2">
                   {[
-                    { label: "Pedido feito na loja", time: "ontem · 18:42", done: true },
-                    { label: "Coletado no CD", time: "hoje · 08:14", done: true },
-                    { label: "Em rota", time: "hoje · 09:22", done: true },
-                    { label: "Entregue ao cliente", time: "hoje · 10:31", done: true, ok: true },
+                    { label: "Pedido na loja", time: "ontem · 18:42" },
+                    { label: "Coletado no CD", time: "hoje · 08:14" },
+                    { label: "Em rota", time: "hoje · 09:22" },
+                    { label: "Entregue ao cliente", time: "hoje · 10:31" },
                   ].map((s, i) => (
-                    <div key={i} className="flex items-start gap-3">
-                      <div className={`grid h-6 w-6 place-items-center rounded-full shrink-0 mt-0.5 ${s.ok ? "bg-success-500" : "bg-navy-900"}`}>
-                        <CheckCircle2 className="h-3.5 w-3.5 text-white" />
+                    <div key={i} className="flex items-start gap-2">
+                      <div className="grid h-5 w-5 place-items-center rounded-full shrink-0 mt-0.5 bg-success-500">
+                        <CheckCircle2 className="h-3 w-3 text-white" />
                       </div>
                       <div className="flex-1">
-                        <div className="text-sm font-semibold text-navy-900">{s.label}</div>
+                        <div className="text-xs font-semibold text-navy-900">{s.label}</div>
                         <div className="text-[10px] text-ink-500">{s.time}</div>
                       </div>
                     </div>
                   ))}
                 </div>
-                <div className="pt-4 border-t border-ink-100 flex items-center justify-between">
-                  <span className="text-xs text-ink-500">Avaliação do cliente</span>
-                  <div className="flex gap-0.5 text-spotorange-500">
+                <div className="pt-3 mt-2 border-t border-ink-100 flex items-center justify-between">
+                  <span className="text-xs text-ink-500">Avaliação</span>
+                  <div className="flex gap-0.5 text-spotorange-500 text-sm">
                     {"★★★★★".split("").map((s, i) => <span key={i}>{s}</span>)}
                   </div>
                 </div>
+              </div>
+
+              {/* Badge laranja */}
+              <div className="absolute -top-4 -left-4 bg-gradient-to-br from-spotorange-500 to-spotorange-600 rounded-2xl shadow-orange-glow p-4 text-white hidden md:block">
+                <ShoppingBag className="h-6 w-6 mb-2" />
+                <div className="text-[10px] uppercase tracking-wider font-semibold opacity-80">Reduzir</div>
+                <div className="text-sm font-bold leading-tight">Chamados<br />de pós-venda</div>
               </div>
             </div>
           </div>
@@ -122,10 +139,7 @@ export default function EcommercePage() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {beneficios.map((b) => (
-              <div
-                key={b.title}
-                className="bg-white border border-ink-200 rounded-2xl p-6 hover:shadow-card transition-all group"
-              >
+              <div key={b.title} className="card-glow p-6 group">
                 <div className="grid h-12 w-12 place-items-center rounded-xl bg-navy-50 group-hover:bg-spotorange-500 transition-colors mb-4">
                   <b.icon className="h-6 w-6 text-navy-900 group-hover:text-white transition-colors" />
                 </div>
@@ -154,10 +168,7 @@ export default function EcommercePage() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-3">
             {integracoes.map((i) => (
-              <div
-                key={i.name}
-                className="bg-white border border-ink-200 rounded-xl p-4 text-center"
-              >
+              <div key={i.name} className="card-glow p-4 text-center">
                 <div className="font-bold text-navy-900 text-sm mb-1.5">{i.name}</div>
                 <div
                   className={`inline-block text-[10px] font-semibold px-2 py-0.5 rounded uppercase tracking-wider ${

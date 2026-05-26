@@ -24,6 +24,9 @@ export function ControleOperacional() {
   return (
     <section className="py-20 lg:py-32 bg-navy-950 text-white relative overflow-hidden">
       <div className="absolute inset-0 dot-grid opacity-10" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-spotorange-500/10 rounded-full -translate-y-32 translate-x-32 blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-navy-700/40 rounded-full translate-y-32 -translate-x-32 blur-3xl" />
+
       <div className="container relative">
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="text-sm font-semibold text-spotorange-400 uppercase tracking-wider mb-3">
@@ -39,18 +42,18 @@ export function ControleOperacional() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {/* CARDS BRANCOS SÓLIDOS em fundo azul — máximo contraste */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {items.map((item) => (
             <div
               key={item.title}
-              className="group bg-white/5 backdrop-blur border-2 border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-spotorange-400 hover:-translate-y-1 transition-all duration-300"
-              style={{ boxShadow: '0 1px 3px 0 rgba(0,0,0,0.1)' }}
+              className="group bg-white rounded-2xl p-6 border-2 border-transparent hover:border-spotorange-500 hover:-translate-y-1 transition-all duration-300 shadow-card-hover"
             >
-              <div className="grid h-12 w-12 place-items-center rounded-xl bg-spotorange-500/10 group-hover:bg-spotorange-500 transition-colors mb-4">
-                <item.icon className="h-6 w-6 text-spotorange-400 group-hover:text-white transition-colors" />
+              <div className="grid h-12 w-12 place-items-center rounded-xl bg-navy-50 group-hover:bg-spotorange-500 transition-colors mb-4">
+                <item.icon className="h-6 w-6 text-navy-900 group-hover:text-white transition-colors" />
               </div>
-              <h3 className="text-base font-bold mb-2">{item.title}</h3>
-              <p className="text-sm text-ink-300 leading-relaxed">{item.desc}</p>
+              <h3 className="text-base font-bold text-navy-900 mb-2">{item.title}</h3>
+              <p className="text-sm text-ink-600 leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>

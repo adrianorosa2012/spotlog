@@ -11,7 +11,7 @@ export default function AuthLayout({
     <div className="min-h-screen grid lg:grid-cols-2 bg-white">
       <div className="hidden lg:flex relative bg-navy-950 overflow-hidden">
         <div className="absolute inset-0 dot-grid opacity-10" />
-        <div className="absolute top-0 right-0 w-80 h-80 bg-spotorange-500/10 rounded-full -translate-y-32 translate-x-32 blur-3xl" />
+        <div className="absolute top-0 right-0 w-80 h-80 bg-spotorange-500/15 rounded-full -translate-y-32 translate-x-32 blur-3xl" />
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-navy-700/30 rounded-full translate-y-32 -translate-x-32 blur-3xl" />
 
         <div className="relative z-10 p-12 flex flex-col justify-between text-white w-full">
@@ -19,7 +19,7 @@ export default function AuthLayout({
             <SpotlogLogo variant="full" light />
           </Link>
 
-          <div className="space-y-8 max-w-md">
+          <div className="space-y-6 max-w-md">
             <h2 className="text-3xl lg:text-4xl font-bold leading-tight text-balance">
               Logística que entrega <em className="text-spotorange-400">controle</em>,
               não só pacote.
@@ -29,17 +29,18 @@ export default function AuthLayout({
               único painel. Tudo conectado, do CD ao destinatário.
             </p>
 
-            <div className="space-y-3">
+            {/* CAIXA BRANCA com 3 benefícios — contraste sobre fundo azul */}
+            <div className="bg-white rounded-2xl p-5 shadow-card space-y-3 text-navy-900">
               {[
                 { icon: Truck, label: "Rastreamento em tempo real" },
                 { icon: MapPin, label: "Cobertura em São Paulo e Grande SP" },
                 { icon: CheckCircle2, label: "Atendimento humano + IA" },
               ].map((f, i) => (
                 <div key={i} className="flex items-center gap-3">
-                  <div className="grid h-10 w-10 place-items-center rounded-lg bg-white/10 backdrop-blur">
-                    <f.icon className="h-5 w-5 text-spotorange-400" />
+                  <div className="grid h-10 w-10 place-items-center rounded-lg bg-spotorange-50">
+                    <f.icon className="h-5 w-5 text-spotorange-600" />
                   </div>
-                  <span className="text-sm">{f.label}</span>
+                  <span className="text-sm font-semibold">{f.label}</span>
                 </div>
               ))}
             </div>
