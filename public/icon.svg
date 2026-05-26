@@ -1,9 +1,10 @@
-﻿<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-  <rect width="512" height="512" rx="96" fill="#011960"/>
-  <g transform="translate(56,56) scale(4)">
+<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" rx="96" fill="#ffffff"/>
+  <rect x="32" y="32" width="448" height="448" rx="72" fill="#011960"/>
+  <g transform="translate(106,106) scale(3)">
     <path d="M 78 12 C 60 10, 32 12, 22 28 C 12 42, 24 54, 44 54 L 54 54 L 54 38 L 44 38 C 38 38, 36 32, 40 28 C 46 22, 64 22, 78 26 Z" fill="#ffffff"/>
     <path d="M 72 18 C 56 17, 36 20, 30 30" stroke="#011960" stroke-width="2.2" stroke-dasharray="3.5 3.5" stroke-linecap="round" fill="none"/>
-    <path d="M 22 88 C 40 90, 68 88, 78 72 C 88 58, 76 46, 56 46 L 46 46 L 46 62 L 56 62 C 62 62, 64 68, 60 72 C 54 78, 36 78, 22 74 Z" fill="#ba0102"/>
+    <path d="M 22 88 C 40 90, 68 88, 78 72 C 88 58, 76 46, 56 46 L 46 46 L 46 62 L 56 62 C 62 62, 64 68, 60 72 C 54 78, 36 78, 22 74 Z" fill="#ff3a3a"/>
     <path d="M 28 82 C 44 83, 64 80, 70 70" stroke="#ffffff" stroke-width="2.2" stroke-dasharray="3.5 3.5" stroke-linecap="round" fill="none"/>
   </g>
 </svg>
