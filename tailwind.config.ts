@@ -10,8 +10,8 @@ const config: Config = {
   theme: {
     container: {
       center: true,
-      padding: "1.5rem",
-      screens: { "2xl": "1320px" },
+      padding: { DEFAULT: "1.25rem", lg: "2rem", xl: "2.5rem" },
+      screens: { "2xl": "1440px" },
     },
     extend: {
       colors: {
@@ -48,20 +48,62 @@ const config: Config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+
+        // ===== AZUL INSTITUCIONAL SPOTLOG #011960 =====
+        // Mantenho o nome 'navy-*' pra não quebrar 50+ arquivos
+        // 900 é a cor oficial; 950 é variação mais escura
         navy: {
-          50: "#eef3ff", 100: "#dde7ff", 200: "#bccfff", 300: "#8eafff",
-          400: "#5d83ff", 500: "#3a5cff", 600: "#2540f0", 700: "#1d31cf",
-          800: "#1b2ba6", 900: "#1c2a83", 950: "#0c1240",
+          50:  "#e8eafa",
+          100: "#c6caef",
+          200: "#9aa1e0",
+          300: "#6c75d0",
+          400: "#424dc1",
+          500: "#1f2bb1",
+          600: "#0f1d9d",
+          700: "#051685",
+          800: "#021368",
+          900: "#011960",  // ← cor institucional oficial
+          950: "#010d3a",
         },
+
         ink: {
-          50: "#f8faff", 100: "#eef3fa", 200: "#dde6f3", 300: "#c1cfe3",
-          400: "#8aa0bf", 500: "#5e7497", 600: "#465a78", 700: "#374863",
-          800: "#2a3850", 900: "#1b2438", 950: "#0e1424",
+          50:  "#f8faff",
+          100: "#eef3fa",
+          200: "#dde6f3",
+          300: "#c1cfe3",
+          400: "#8aa0bf",
+          500: "#5e7497",
+          600: "#465a78",
+          700: "#374863",
+          800: "#2a3850",
+          900: "#1b2438",
+          950: "#0e1424",
         },
+
+        // ===== VERMELHO PRINCIPAL SPOTLOG #BA0102 =====
+        // Mantenho o nome 'spotorange-*' pra não quebrar componentes existentes
+        // mas o valor agora é VERMELHO oficial (não mais laranja)
         spotorange: {
-          50: "#fff5ed", 100: "#ffe7d3", 200: "#ffcaa5", 300: "#ffa56d",
-          400: "#ff7333", 500: "#ff5410", 600: "#f03b06", 700: "#c72b08",
-          800: "#9e240f", 900: "#7f2010", 950: "#450c06",
+          50:  "#ffeded",
+          100: "#ffd6d6",
+          200: "#fbaaaa",
+          300: "#f47373",
+          400: "#e23a3a",
+          500: "#ba0102",  // ← vermelho oficial principal
+          600: "#9e0101",
+          700: "#820101",
+          800: "#6a0101",
+          900: "#560101",
+          950: "#300000",
+        },
+
+        // Verde mantém pra status de sucesso (SLA, entregue, etc)
+        success: {
+          50:  "#f0fdf4",
+          100: "#dcfce7",
+          500: "#22c55e",
+          600: "#16a34a",
+          700: "#15803d",
         },
       },
       borderRadius: {
@@ -85,11 +127,11 @@ const config: Config = {
         "float-y": "float-y 4s ease-in-out infinite",
       },
       boxShadow: {
-        soft: "0 2px 12px -2px rgba(28,42,131,0.08), 0 4px 24px -4px rgba(28,42,131,0.06)",
-        card: "0 4px 20px -4px rgba(28,42,131,0.1), 0 8px 32px -8px rgba(28,42,131,0.08)",
-        "card-hover": "0 12px 40px -4px rgba(28,42,131,0.18), 0 20px 56px -8px rgba(28,42,131,0.14)",
-        "orange-glow": "0 10px 28px -4px rgba(255,84,16,0.35)",
-        "navy-glow": "0 10px 28px -4px rgba(37,64,240,0.3)",
+        soft:         "0 2px 12px -2px rgba(1,25,96,0.10), 0 4px 24px -4px rgba(1,25,96,0.08)",
+        card:         "0 4px 20px -4px rgba(1,25,96,0.12), 0 8px 32px -8px rgba(1,25,96,0.10)",
+        "card-hover": "0 12px 40px -4px rgba(1,25,96,0.20), 0 20px 56px -8px rgba(1,25,96,0.16)",
+        "orange-glow":"0 10px 28px -4px rgba(186,1,2,0.40)",    // vermelho glow
+        "navy-glow":  "0 10px 28px -4px rgba(1,25,96,0.40)",
       },
     },
   },

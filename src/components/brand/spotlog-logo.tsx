@@ -1,18 +1,9 @@
 import { cn } from "@/lib/utils";
 
 /**
- * Logo oficial Spotlog — "S" estilizado como estrada com 2 curvas:
- *  - lado esquerdo: faixa azul navy
- *  - lado direito:  faixa laranja
- * Faixas tracejadas brancas simulando faixa central da estrada.
- *
- * variant:
- *   - "full"     → ícone + tipografia "SPOTLOG" + tagline (header / footer)
- *   - "stacked"  → ícone em cima, texto embaixo (footer mobile)
- *   - "mark"     → só o ícone S (favicon / avatars)
- *   - "wordmark" → só "SPOTLOG" (em ambientes pequenos)
- *
- * `light` = true → texto em branco (pra fundos escuros)
+ * Logo oficial Spotlog — cores institucionais:
+ *  - Azul institucional #011960 (lado esquerdo "S")
+ *  - Vermelho principal #BA0102 (lado direito "S" + tipografia "LOG")
  */
 export function SpotlogLogo({
   variant = "full",
@@ -23,8 +14,8 @@ export function SpotlogLogo({
   light?: boolean;
   className?: string;
 }) {
-  const navy = "#1c2a83";
-  const orange = "#ff5410";
+  const NAVY = "#011960";
+  const RED = "#ba0102";
 
   const Mark = (
     <svg
@@ -34,12 +25,11 @@ export function SpotlogLogo({
       className="h-full w-full"
       aria-hidden="true"
     >
-      {/* Metade superior do "S" — curva azul (estrada que entra) */}
+      {/* Metade superior do "S" — curva AZUL #011960 */}
       <path
         d="M 78 12 C 60 10, 32 12, 22 28 C 12 42, 24 54, 44 54 L 54 54 L 54 38 L 44 38 C 38 38, 36 32, 40 28 C 46 22, 64 22, 78 26 Z"
-        fill={navy}
+        fill={NAVY}
       />
-      {/* Faixas tracejadas brancas (faixa central da estrada) — metade superior */}
       <path
         d="M 72 18 C 56 17, 36 20, 30 30"
         stroke="white"
@@ -49,12 +39,11 @@ export function SpotlogLogo({
         fill="none"
       />
 
-      {/* Metade inferior do "S" — curva laranja (estrada que sai) */}
+      {/* Metade inferior do "S" — curva VERMELHA #BA0102 */}
       <path
         d="M 22 88 C 40 90, 68 88, 78 72 C 88 58, 76 46, 56 46 L 46 46 L 46 62 L 56 62 C 62 62, 64 68, 60 72 C 54 78, 36 78, 22 74 Z"
-        fill={orange}
+        fill={RED}
       />
-      {/* Faixas tracejadas brancas — metade inferior */}
       <path
         d="M 28 82 C 44 83, 64 80, 70 70"
         stroke="white"
@@ -67,22 +56,18 @@ export function SpotlogLogo({
   );
 
   if (variant === "mark") {
-    return (
-      <div className={cn("aspect-square", className)}>
-        {Mark}
-      </div>
-    );
+    return <div className={cn("aspect-square", className)}>{Mark}</div>;
   }
 
   const textColor = light ? "text-white" : "text-navy-900";
-  const orangeText = light ? "text-spotorange-400" : "text-spotorange-500";
+  const redText = light ? "text-spotorange-400" : "text-spotorange-500";
   const taglineColor = light ? "text-ink-300" : "text-ink-500";
 
   if (variant === "wordmark") {
     return (
       <span className={cn("font-black tracking-tight text-2xl", className)}>
         <span className={textColor}>SPOT</span>
-        <span className={orangeText}>LOG</span>
+        <span className={redText}>LOG</span>
       </span>
     );
   }
@@ -93,7 +78,7 @@ export function SpotlogLogo({
         <div className="h-14 w-14">{Mark}</div>
         <span className="font-black tracking-tight text-xl leading-none">
           <span className={textColor}>SPOT</span>
-          <span className={orangeText}>LOG</span>
+          <span className={redText}>LOG</span>
         </span>
         <span className={cn("text-[9px] font-bold uppercase tracking-[0.18em]", taglineColor)}>
           Logística inteligente
@@ -102,14 +87,13 @@ export function SpotlogLogo({
     );
   }
 
-  // full
   return (
     <div className={cn("inline-flex items-center gap-2.5", className)}>
       <div className="h-11 w-11 shrink-0">{Mark}</div>
       <div className="flex flex-col leading-none">
         <span className="font-black tracking-tight text-xl">
           <span className={textColor}>SPOT</span>
-          <span className={orangeText}>LOG</span>
+          <span className={redText}>LOG</span>
         </span>
         <span className={cn("text-[9px] font-bold uppercase tracking-[0.18em] mt-0.5", taglineColor)}>
           Logística inteligente

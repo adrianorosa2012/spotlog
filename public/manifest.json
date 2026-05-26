@@ -1,0 +1,38 @@
+{
+  "name": "Spotlog — Logística Inteligente",
+  "short_name": "Spotlog",
+  "description": "Logística inteligente para empresas que precisam entregar com controle, agilidade e confiança.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#ffffff",
+  "theme_color": "#011960",
+  "scope": "/",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity", "utilities"],
+  "shortcuts": [
+    {
+      "name": "Rastrear entrega",
+      "short_name": "Rastrear",
+      "url": "/rastreamento"
+    },
+    {
+      "name": "Área do cliente",
+      "short_name": "Login",
+      "url": "/login"
+    },
+    {
+      "name": "Solicitar proposta",
+      "short_name": "Contato",
+      "url": "/contato"
+    }
+  ]
+}

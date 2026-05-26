@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -24,6 +24,14 @@ function resolveBaseUrl(): string {
   }
 }
 
+export const viewport: Viewport = {
+  themeColor: "#011960", // azul institucional Spotlog
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(resolveBaseUrl()),
   title: {
@@ -34,21 +42,18 @@ export const metadata: Metadata = {
   description:
     "Logística para e-commerce, farma, manipulação, correlatos e operações B2B com rastreabilidade, atendimento integrado, controle operacional e tecnologia de ponta.",
   keywords: [
-    "Spotlog",
-    "logística",
-    "entregas",
-    "e-commerce",
-    "farma",
-    "manipulação",
-    "correlatos",
-    "rastreamento",
-    "coleta programada",
-    "rota dedicada",
-    "São Paulo",
-    "motoboy",
-    "express",
+    "Spotlog", "logística", "entregas", "e-commerce", "farma",
+    "manipulação", "correlatos", "rastreamento", "coleta programada",
+    "rota dedicada", "São Paulo", "motoboy", "express",
   ],
   authors: [{ name: "Spotlog" }],
+  manifest: "/manifest.json",
+  applicationName: "Spotlog",
+  appleWebApp: {
+    capable: true,
+    title: "Spotlog",
+    statusBarStyle: "default",
+  },
   openGraph: {
     title: "Spotlog — Logística inteligente",
     description:
@@ -59,6 +64,7 @@ export const metadata: Metadata = {
   },
   twitter: { card: "summary_large_image", title: "Spotlog — Logística inteligente" },
   robots: { index: true, follow: true },
+  formatDetection: { telephone: false },
 };
 
 export default function RootLayout({
@@ -68,7 +74,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR" suppressHydrationWarning>
-      <body className={`${inter.variable} font-sans bg-background text-foreground`}>
+      <head>
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/icon.svg" />
+      </head>
+      <body className={`${inter.variable} font-sans bg-background text-foreground w-full overflow-x-hidden`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
